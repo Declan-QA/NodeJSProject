@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        Your info
+        <div id="data"></div>
+    </main>
+
+    <script>
+        const data = JSON.parse(localStorage.getItem("form"))
+        for (key in data){
+            const markup = `
+            <div>
+                <span>${key}: ${data[key]}</span>
+            </div>
+            `;
+            document.getElementById("data").innerHTML+= markup
+        }
+    </script>
+</body>
+</html>
