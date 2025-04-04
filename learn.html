@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <div>
+          <label for="firstName">First name</label>
+          <input type="text" name="firstName">
+        </div>
+        <div>
+          <label for="lastName">Last name</label>
+          <input type="text" name="lastName">
+        </div>
+        <div>
+          <label for="JS-difficult">How difficult is JavaScript?</label>
+          <select name="JS-difficulty">
+            <option>Easy</option>
+            <option>Somewhere between</option>
+            <option>Hard</option>
+          </select>
+        </div>
+          <button type="submit">Submit</button>
+      </form>
+<script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); // Prevent HTML submission
+      
+      // Create payload of type multipart/form-data (awlays of this type when using the FormData() constructor):
+      const fd = new FormData(form);
+  
+      // Convert to URL-encoded string:
+      const urlEncoded = new URLSearchParams(fd).toString();
+      console.log(urlEncoded)
+      fetch('http://localhost:3000/upload', {
+        method: "POST",
+        body: urlEncoded, // just 'fd' for multipart/form-data
+        headers: {
+          'Content-type': 'application/x-www-form-urlencoded'
+        }
+      })
+
+})
+</script>
+</body>
+</html>
