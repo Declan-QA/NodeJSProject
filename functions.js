@@ -1,7 +1,3 @@
-function output_formdata(formData){
-    formobj= Object.entries(formData)
-    for (item of formobj){
-        console.log(item)
-    }
-}
-
+export const validateEmail = (email) => {
+    return Boolean(email.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/));
+};
