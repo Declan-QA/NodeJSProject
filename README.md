@@ -1,3 +1,3 @@
 # NodeJSProject
 SImple Node Application
-with sqlite and potentially express
+with express and potentially sqlite
